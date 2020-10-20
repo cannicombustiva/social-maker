@@ -29,3 +29,18 @@ module.exports.validatorRegisterInput = (
 
     
 }
+
+module.exports.validatorLoginInput = (username, password) => {
+    const errors = {};
+    if(username.trim() === '') {
+        errors.username = 'Username must be not empty';
+    }
+    if(password === '') {
+        errors.password = 'Password must be not empty';
+    }
+
+    return {
+        errors,
+        valid: Object.keys(errors).length < 1
+    } 
+}
