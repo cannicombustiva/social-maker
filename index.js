@@ -8,7 +8,8 @@ const { MONGODB } = require('./config');
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req }) => ({ req })
 });
 
 //connect to db before we start the server. Actually we need a connection string, we can find it in config.js
